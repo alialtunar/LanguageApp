@@ -5,11 +5,25 @@ using System.Net;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using App.Domain.Entities;
+using Microsoft.EntityFrameworkCore;
+using App.Application.Interfaces;
+using App.Persistance.Context;
+using System.Net.Http;
+using System.Threading;
+using System;
 
 namespace App.API.Middleware
 {
     public class ExceptionMiddleware : IMiddleware
     {
+        private readonly ApplicationDbContext _context;
+
+        public ExceptionMiddleware(ApplicationDbContext context)
+        {
+            _context = context;
+        }
+
         public async Task InvokeAsync(HttpContext context, RequestDelegate next)
         {
             try
@@ -18,6 +32,7 @@ namespace App.API.Middleware
             }
             catch (Exception ex)
             {
+                await LogExceptionToDatabaseAsync(ex,context.Request);
                 await HandleExceptionAsync(context, ex);
 
             }
@@ -34,8 +49,10 @@ namespace App.API.Middleware
                 await context.Response.WriteAsJsonAsync(new
                 {
                     errors = validationException.Errors.Select(s => s.PropertyName).ToArray(),
-                 
                 });
+
+                var errorAsDto = ServiceResult.Fail(ex.Message, HttpStatusCode.InternalServerError);
+
             }
             else
             {
@@ -46,6 +63,21 @@ namespace App.API.Middleware
                    
                 });
             }
+        }
+
+        private async Task LogExceptionToDatabaseAsync(Exception ex, HttpRequest request)
+        {
+            ErrorLog errorLog = new()
+            {
+                ErrorMessage = ex.Message,
+                StackTrace = ex.StackTrace,
+                RequestPath = request.Path,
+                RequestMethod = request.Method,
+                Timestamp = DateTime.Now,
+            };
+
+            await _context.Set<ErrorLog>().AddAsync(errorLog, default);
+            await _context.SaveChangesAsync(default);
         }
     }
 }

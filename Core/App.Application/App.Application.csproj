@@ -7,14 +7,19 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Feautures\Categories\Queries\" />
+    <Folder Include="Feautures\Auth\Validators\" />
+    <Folder Include="Feautures\Auth\Queries\" />
+    <Folder Include="Feautures\Categories\Dtos\" />
+    <Folder Include="Feautures\Categories\Validators\" />
     <Folder Include="Feautures\Products\Queries\" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="13.0.1" />
     <PackageReference Include="FluentValidation" Version="11.11.0" />
     <PackageReference Include="MediatR" Version="12.4.1" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.35.0" />
   </ItemGroup>
 
   <ItemGroup>
