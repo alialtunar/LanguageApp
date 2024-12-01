@@ -12,6 +12,7 @@
     <Folder Include="Feautures\Categories\Dtos\" />
     <Folder Include="Feautures\Categories\Validators\" />
     <Folder Include="Feautures\Products\Queries\" />
+    <Folder Include="Mappings\" />
   </ItemGroup>
 
   <ItemGroup>

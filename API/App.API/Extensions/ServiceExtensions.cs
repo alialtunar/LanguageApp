@@ -89,8 +89,7 @@ namespace App.API.Extensions
             services.AddValidatorsFromAssembly(typeof(App.Application.AssemblyReference).Assembly);
 
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
-            services.AddScoped<IProductRepository, ProductRepository>();
-            services.AddScoped<ICategoryRepository, CategoryRepository>();
+        
             services.AddScoped<IAuthRepository, AuthRepository>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddTransient<ExceptionMiddleware>();

@@ -11,19 +11,19 @@ namespace App.Persistance.Repositories
     public class UnitOfWork : IUnitOfWork
     {
         private readonly ApplicationDbContext _context;
-        private IProductRepository _productRepository;
-        private ICategoryRepository _categoryRepository;
+        //private IProductRepository _productRepository;
+        //private ICategoryRepository _categoryRepository;
 
         public UnitOfWork(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        public IProductRepository Products =>
-            _productRepository ??= new ProductRepository(_context);
+        //public IProductRepository Products =>
+        //    _productRepository ??= new ProductRepository(_context);
 
-        public ICategoryRepository Categories =>
-            _categoryRepository ??= new CategoryRepository(_context);
+        //public ICategoryRepository Categories =>
+        //    _categoryRepository ??= new CategoryRepository(_context);
 
         public async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {

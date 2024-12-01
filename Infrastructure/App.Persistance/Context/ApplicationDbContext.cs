@@ -10,8 +10,10 @@ namespace App.Persistance.Context
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
              : base(options) { }
 
-        public DbSet<Product> Products { get; set; }
-        public DbSet<Category> Categories { get; set; }
+        public DbSet<Video> Videos { get; set; }
+        public DbSet<Sentence> Sentences { get; set; }
+        public DbSet<Language> Languages { get; set; }
+        public DbSet<Translation> Translations { get; set; }
         public DbSet<ErrorLog> ErrorLogs { get; set; }
 
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
