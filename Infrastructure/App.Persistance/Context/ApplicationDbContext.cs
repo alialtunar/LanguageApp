@@ -11,9 +11,12 @@ namespace App.Persistance.Context
              : base(options) { }
 
         public DbSet<Video> Videos { get; set; }
-        public DbSet<Sentence> Sentences { get; set; }
         public DbSet<Language> Languages { get; set; }
-        public DbSet<Translation> Translations { get; set; }
+        public DbSet<Subtitle> Subtitles { get; set; }
+        public DbSet<SubtitleTranslation> SubtitleTranslations { get; set; }
+
+        public DbSet<ApplicationUser> ApplicationUsers { get; set; }
+        public int MyProperty { get; set; }
         public DbSet<ErrorLog> ErrorLogs { get; set; }
 
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)

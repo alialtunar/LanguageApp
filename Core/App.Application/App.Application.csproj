@@ -11,7 +11,13 @@
     <Folder Include="Feautures\Auth\Queries\" />
     <Folder Include="Feautures\Categories\Dtos\" />
     <Folder Include="Feautures\Categories\Validators\" />
-    <Folder Include="Feautures\Products\Queries\" />
+    <Folder Include="Feautures\Languages\Dtos\" />
+    <Folder Include="Feautures\Languages\Validators\" />
+    <Folder Include="Feautures\Subtitles\Dtos\" />
+    <Folder Include="Feautures\Subtitles\Validators\" />
+    <Folder Include="Feautures\Subtitles\Queries\" />
+    <Folder Include="Feautures\Videos\Dtos\" />
+    <Folder Include="Feautures\Videos\Validators\" />
     <Folder Include="Mappings\" />
   </ItemGroup>
 

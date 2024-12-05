@@ -8,6 +8,10 @@ namespace App.Application.Interfaces
 {
     public interface IUnitOfWork
     {
-        Task<int> SaveChangesAsync(CancellationToken cancellationToken);
+        IVideoRepository VideoRepository { get; }
+        ILanguageRepository LanguageRepository { get; }
+        ISubtitleRepository SubtitleRepository { get; }
+        ISubtitleTranslationRepository SubtitleTranslationRepository { get; }
+        Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
     }
 }

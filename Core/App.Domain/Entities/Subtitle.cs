@@ -7,16 +7,16 @@ using System.Threading.Tasks;
 
 namespace App.Domain.Entities
 {
-    public class Sentence:BaseEntity
+    public class Subtitle : BaseEntity
     {
         public TimeSpan StartTime { get; set; }
         public TimeSpan EndTime { get; set; }
-        public string SentenceText { get; set; } = string.Empty;
-
+        public string Text { get; set; } = string.Empty;
         public string VideoId { get; set; }
         public Video Video { get; set; }
-
-        public ICollection<Translation> Translations { get; set; } = new List<Translation>();
-
+        public string LanguageId { get; set; }
+        public Language Language { get; set; }
+        public ICollection<SubtitleTranslation> Translations { get; set; } = new List<SubtitleTranslation>();
     }
 }
+

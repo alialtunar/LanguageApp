@@ -13,6 +13,11 @@ namespace App.Persistance.Repositories
         private readonly ApplicationDbContext _context;
         //private IProductRepository _productRepository;
         //private ICategoryRepository _categoryRepository;
+        private IVideoRepository _videoRepository;
+        private ISubtitleTranslationRepository _subtitleTranslationRepository;
+        private ILanguageRepository _languageRepository;
+        private ISubtitleRepository _subtitleRepository;
+
 
         public UnitOfWork(ApplicationDbContext context)
         {
@@ -24,6 +29,18 @@ namespace App.Persistance.Repositories
 
         //public ICategoryRepository Categories =>
         //    _categoryRepository ??= new CategoryRepository(_context);
+
+        public IVideoRepository VideoRepository =>
+        _videoRepository ??= new VideoRepository(_context);
+
+        public ISubtitleRepository SubtitleRepository =>
+        _subtitleRepository ??= new SubtitleRepository(_context);
+
+        public ISubtitleTranslationRepository SubtitleTranslationRepository =>
+    _subtitleTranslationRepository ??= new SubtitleTranslationRepository(_context);
+
+        public ILanguageRepository LanguageRepository =>
+    _languageRepository ??= new LanguageRepository(_context);
 
         public async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {

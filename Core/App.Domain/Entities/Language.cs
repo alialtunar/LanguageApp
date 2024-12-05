@@ -11,8 +11,9 @@ namespace App.Domain.Entities
     {
         public string LanguageName { get; set; } = string.Empty;
         public string LanguageCode { get; set; } = string.Empty;
-
-        public ICollection<Translation> Translations { get; set; } = new List<Translation>();
+        public ICollection<Video> Videos { get; set; } = new List<Video>();
+        public ICollection<Subtitle> Subtitles { get; set; } = new List<Subtitle>();
+        public ICollection<SubtitleTranslation> Translations { get; set; } = new List<SubtitleTranslation>();
 
     }
 }

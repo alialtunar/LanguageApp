@@ -1,5 +1,4 @@
 ﻿using App.Domain.Abstract;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace App.Domain.Entities
 {
@@ -8,7 +7,9 @@ namespace App.Domain.Entities
         public string Title { get; set; }
         public string Url { get; set; }
         public TimeSpan Duration { get; set; }
-        public ICollection<Sentence> Sentences { get; set; } = new List<Sentence>();
+        public string LanguageId { get; set; }
+        public Language Language { get; set; }
+        public ICollection<Subtitle> Subtitles { get; set; } = new List<Subtitle>();
 
     }
 }

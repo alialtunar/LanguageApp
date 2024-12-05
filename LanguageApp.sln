@@ -19,7 +19,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App.Persistance", "Infrastr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App.API", "API\App.API\App.API.csproj", "{738F08EB-798B-499A-86B0-3887E64E074E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.Infrastructure", "Infrastructure\App.Infrastructure\App.Infrastructure.csproj", "{804AF57F-6E32-41C7-91E3-D36BAE062BAD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App.Infrastructure", "Infrastructure\App.Infrastructure\App.Infrastructure.csproj", "{804AF57F-6E32-41C7-91E3-D36BAE062BAD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
